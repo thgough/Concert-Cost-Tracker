@@ -2,7 +2,14 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { BarChart3, ListMusic, PlusCircle, LogOut } from "lucide-react";
+import {
+  BarChart3,
+  GitCompare,
+  ListMusic,
+  PlusCircle,
+  LogOut,
+  Wallet,
+} from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import ThemeSelector from "@/components/ThemeSelector";
 import FadeIn from "@/components/motion/FadeIn";
@@ -13,9 +20,11 @@ type AppShellProps = {
 };
 
 const navItems = [
-  { href: "/dashboard", label: "Dashboard", icon: BarChart3 },
-  { href: "/add", label: "Add Concert", icon: PlusCircle },
-  { href: "/concerts", label: "My Concerts", icon: ListMusic },
+  { href: "/dashboard", label: "Insights", shortLabel: "Insights", icon: BarChart3 },
+  { href: "/compare", label: "Compare", shortLabel: "Compare", icon: GitCompare },
+  { href: "/concerts", label: "Concerts", shortLabel: "Shows", icon: ListMusic },
+  { href: "/add", label: "Add", shortLabel: "Add", icon: PlusCircle },
+  { href: "/budget", label: "Budget", shortLabel: "Budget", icon: Wallet },
 ];
 
 export default function AppShell({ userEmail, children }: AppShellProps) {
@@ -100,7 +109,7 @@ export default function AppShell({ userEmail, children }: AppShellProps) {
               className={active ? "active text-primary" : ""}
             >
               <item.icon className="w-5 h-5" aria-hidden />
-              <span className="btm-nav-label text-xs">{item.label}</span>
+              <span className="btm-nav-label text-xs">{item.shortLabel}</span>
             </Link>
           );
         })}

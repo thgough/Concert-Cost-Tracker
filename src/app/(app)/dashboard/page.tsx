@@ -1,6 +1,4 @@
-import DashboardCharts from "@/components/DashboardCharts";
-import DashboardStats from "@/components/DashboardStats";
-import EmptyState from "@/components/EmptyState";
+import InsightsHub from "@/components/insights/InsightsHub";
 import PageHeader from "@/components/PageHeader";
 import { getConcerts } from "@/lib/get-concerts";
 
@@ -10,18 +8,10 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-10">
       <PageHeader
-        title="Dashboard"
-        subtitle="Overview of your concerts, spending, and fun per dollar."
+        title="Insights"
+        subtitle="Filters, trends, and highlights from your concert history."
       />
-
-      {concerts.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <>
-          <DashboardStats concerts={concerts} />
-          <DashboardCharts concerts={concerts} />
-        </>
-      )}
+      <InsightsHub concerts={concerts} />
     </div>
   );
 }

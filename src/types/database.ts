@@ -81,6 +81,27 @@ export type Database = {
         };
         Relationships: [];
       };
+      user_budgets: {
+        Row: {
+          budget_year: number;
+          updated_at: string;
+          user_id: string;
+          yearly_budget: number;
+        };
+        Insert: {
+          budget_year?: number;
+          updated_at?: string;
+          user_id: string;
+          yearly_budget?: number;
+        };
+        Update: {
+          budget_year?: number;
+          updated_at?: string;
+          user_id?: string;
+          yearly_budget?: number;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;
@@ -99,3 +120,6 @@ export type Database = {
 
 export type Concert = Database["public"]["Tables"]["concerts"]["Row"];
 export type ConcertInsert = Database["public"]["Tables"]["concerts"]["Insert"];
+export type UserBudget = Database["public"]["Tables"]["user_budgets"]["Row"];
+export type UserBudgetInsert =
+  Database["public"]["Tables"]["user_budgets"]["Insert"];
