@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    synthwave,
+    forest,
+    corporate,
+    cupcake,
+    dracula,
+    sunset;
+}
+
+/* Typography scale: page title text-3xl | section text-xl | body text-base | helper text-sm */
+
+html {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.login-hero {
+  background: linear-gradient(
+    135deg,
+    oklch(var(--p) / 0.25) 0%,
+    oklch(var(--s) / 0.2) 50%,
+    oklch(var(--a) / 0.15) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    transition: none;
+  }
+}
+
+/* Keyboard focus visibility */
+:focus-visible {
+  outline: 2px solid oklch(var(--p));
+  outline-offset: 2px;
+}
+
+.tab:focus-visible,
+.btn:focus-visible,
+.input:focus-visible,
+.select:focus-visible,
+.range:focus-visible,
+.link:focus-visible {
+  outline: 2px solid oklch(var(--p));
+  outline-offset: 2px;
+}
